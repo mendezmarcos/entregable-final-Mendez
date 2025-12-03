@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🎮 Juegos Super Baratos</title>
+  <link rel="stylesheet" href="./css/style.css" />
+
+  <!-- Notificaciones (librería) -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+  <header>
+    <h1>🎮 Juegos Super Baratos</h1>
+  </header>
+
+  <main>
+    <section id="productos" aria-label="Listado de productos"></section>
+
+    <aside id="carrito" aria-label="Carrito de compras">
+      <h2>🛒 Carrito</h2>
+      <ul id="lista-carrito"></ul>
+      <p id="total">Total: $0</p>
+      <div class="botones-carrito">
+        <button id="vaciar-carrito">Vaciar carrito</button>
+        <button id="finalizar-compra">Finalizar compra</button>
+      </div>
+      <div id="mensajes"></div>
+    </aside>
+
+  </main>
+
+  <footer>
+    <p>© 2025 Juegos Super Baratos - Todos los derechos reservados </p>
+  </footer>
+
+  <script src="./JS/app.js"></script>
+  
+</body>
+</html>

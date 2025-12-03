@@ -1,0 +1,307 @@
+:root{
+  --bg: #0e0f10;
+  --panel: #141617;
+  --card: #1e1f20;
+  --muted: #bfbfbf;
+  --accent: #00d26a;
+  --accent-2: #00b85a;
+  --danger: #ff5a5f;
+  --glass: rgba(255,255,255,0.04);
+  --neon: rgba(0,210,106,0.15);
+  --shadow: 0 8px 24px rgba(0,0,0,0.6);
+}
+
+*{box-sizing:border-box}
+html,body{
+  height:100%;
+  margin:0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(0,210,106,0.02), transparent 6%),
+              radial-gradient(1000px 400px at 90% 90%, rgba(0,184,90,0.01), transparent 6%),
+              var(--bg);
+  color:#e9f5ee;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  display:flex;
+  flex-direction:column;
+}
+
+main{
+  flex:1;
+  display:flex;
+  gap:20px;
+  padding:22px;
+  align-items:flex-start;
+}
+
+footer{
+  background:#090a0b;
+  padding:12px;
+  text-align:center;
+  border-top:1px solid rgba(255,255,255,0.03);
+  color:#9aa79a;
+}
+
+header{
+  position:relative;
+  padding:18px 22px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  overflow:hidden;
+}
+
+header h1{
+  margin:0;
+  font-size:26px;
+  letter-spacing:0.6px;
+  color:#dfffe6;
+  display:inline-block;
+  z-index:2;
+}
+
+header::before{
+  content:"";
+  position:absolute;
+  left:-40%;
+  top:0;
+  width:40%;
+  height:100%;
+  background: linear-gradient(120deg, transparent, rgba(0,210,106,0.18), transparent);
+  transform: skewX(-18deg);
+  filter: blur(14px);
+  animation: slide 6s linear infinite;
+  z-index:1;
+  pointer-events:none;
+}
+
+header::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.02), transparent 30%);
+  z-index:0;
+  pointer-events:none;
+}
+
+@keyframes slide{
+  0%{left:-40%}
+  50%{left:110%}
+  100%{left:110%}
+}
+
+#productos{
+  width:68%;
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap:18px;
+  align-items:start;
+}
+
+.producto{
+  background: linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.008));
+  border: 1px solid rgba(0,0,0,0.4);
+  padding:12px;
+  border-radius:12px;
+  box-shadow: var(--shadow);
+  transition: transform .18s ease, box-shadow .18s ease;
+  display:flex;
+  flex-direction:column;
+  min-height: 280px;
+  position:relative;
+  overflow:hidden;
+}
+
+.producto:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.65);
+  border-color: rgba(0,210,106,0.25);
+}
+
+.producto::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;
+  height:6px;
+  width:100%;
+  background: linear-gradient(90deg, rgba(0,210,106,0.0), rgba(0,210,106,0.28), rgba(0,210,106,0.0));
+  opacity:0.8;
+  transform: translateY(-6px);
+  transition: transform .18s ease;
+}
+
+.producto:hover::before{ transform: translateY(0); }
+
+.producto img{
+  width:100%;
+  height:150px;
+  object-fit:cover;
+  border-radius:8px;
+  margin-bottom:10px;
+  border:1px solid rgba(255,255,255,0.02);
+}
+
+.producto h3{
+  margin:6px 0 4px 0;
+  font-size:16px;
+  color:#e6fff0;
+}
+
+.producto p{
+  margin:0;
+  font-size:14px;
+  color:var(--muted);
+  margin-bottom:10px;
+}
+
+.producto button{
+  margin-top:auto;
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+  border:none;
+  padding:10px 14px;
+  border-radius:10px;
+  color:#042006;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow: 0 6px 18px rgba(0,210,106,0.12);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+
+.producto button:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(0,210,106,0.18);
+}
+
+#carrito{
+  width:30%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.008), rgba(255,255,255,0.004));
+  padding:18px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.03);
+  box-shadow: var(--shadow);
+  position:sticky;
+  top:22px;
+  height:fit-content;
+}
+
+#carrito h2{
+  margin:0 0 12px 0;
+  font-size:20px;
+  color:#dfffe6;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+#lista-carrito{
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  max-height:420px;
+  overflow:auto;
+}
+
+#lista-carrito li{
+  background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(255,255,255,0.01));
+  padding:10px;
+  border-radius:10px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  border:1px solid rgba(0,0,0,0.45);
+}
+
+#lista-carrito li .row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+}
+
+#lista-carrito button{
+  padding:6px 10px;
+  border-radius:8px;
+  border:none;
+  cursor:pointer;
+  font-weight:700;
+  font-size:13px;
+}
+
+.sumar{
+  background: linear-gradient(180deg, #00e07a, #00b85a);
+  color:#042006;
+}
+
+.restar{
+  background: linear-gradient(180deg, #ff8b8b, #ff5a5f);
+  color:#3a0606;
+}
+
+.eliminar{
+  background: linear-gradient(180deg, #7a7a7a, #5a5a5a);
+  color:#eaeaea;
+}
+
+#total{
+  font-size:18px;
+  font-weight:800;
+  text-align:center;
+  margin-top:8px;
+  color:#e6ffe8;
+}
+
+.botones-carrito{
+  display:flex;
+  gap:8px;
+  margin-top:12px;
+}
+
+#vaciar-carrito, #finalizar-compra{
+  flex:1;
+  padding:10px 12px;
+  border-radius:10px;
+  border:none;
+  cursor:pointer;
+  font-weight:700;
+}
+
+#vaciar-carrito{
+  background: linear-gradient(180deg, #ff7a7a, #ff5a5a);
+  color:#230202;
+}
+
+#finalizar-compra{
+  background: linear-gradient(180deg, #00d26a, #00a84f);
+  color:#022e10;
+}
+
+#mensajes{
+  text-align:center;
+  margin-top:12px;
+  color:var(--muted);
+}
+
+button:focus{
+  outline:2px solid rgba(0,210,106,0.25);
+  outline-offset:2px;
+}
+
+img{ display:block; }
+
+@media (max-width:980px){
+  main{ flex-direction:column; padding:14px; }
+  #productos{ width:100%; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+  #carrito{ width:100%; position:relative; top:0; margin-top:12px; }
+}
+
+@keyframes neonPulse {
+  0% { box-shadow: 0 0 6px rgba(0,210,106,0.08); }
+  50% { box-shadow: 0 0 18px rgba(0,210,106,0.16); }
+  100% { box-shadow: 0 0 6px rgba(0,210,106,0.08); }
+}
+
+.producto:hover img{
+  animation: neonPulse 1.2s ease-in-out both;
+}

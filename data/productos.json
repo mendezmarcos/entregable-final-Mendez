@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "nombre": "Resident Evil 8: Village",
+    "precio": 19999,
+    "imagen": "https://cdn.cloudflare.steamstatic.com/steam/apps/1196590/header.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "God of War: Ragnarok",
+    "precio": 14999,
+    "imagen": "https://cdn.cloudflare.steamstatic.com/steam/apps/2322010/header.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "God of War (2018)",
+    "precio": 12999,
+    "imagen": "https://cdn.cloudflare.steamstatic.com/steam/apps/1593500/header.jpg"
+  },
+  {
+    "id": 4,
+    "nombre": "The Last of Us Part I",
+    "precio": 17999,
+    "imagen": "https://cdn.cloudflare.steamstatic.com/steam/apps/1888930/header.jpg"
+  }
+]
